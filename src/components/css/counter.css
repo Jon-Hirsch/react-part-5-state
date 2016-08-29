@@ -1,0 +1,11 @@
+.counterButton {
+  padding: 2px;
+  margin: 2px;
+  min-width: 25px;
+  font-size: 25px;
+}
+
+.counterNumber {
+  padding: 5px;
+  font-size: 20px;
+}
