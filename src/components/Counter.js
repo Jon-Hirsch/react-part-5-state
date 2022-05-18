@@ -1,37 +1,26 @@
-import React from 'react';
-import { Component } from 'react';
-import './css/counter.css';
+import React, { useState } from "react";
+import "./css/counter.css";
 
-export default class Counter extends Component {
+export default function Counter() {
+  const [counter, setCounter] = useState(0);
 
-  constructor(props) {
-    super();
-    this.state = {
-      counter: 0,
-    }
-    this.incrementCounter = this.incrementCounter.bind(this);
-    this.decrementCounter = this.decrementCounter.bind(this);
+  function incrementCounter() {
+    setCounter(counter + 1);
   }
 
-  incrementCounter() {
-    this.setState({
-      counter: this.state.counter + 1
-    });
+  function decrementCounter() {
+    setCounter(counter - 1);
   }
 
-  decrementCounter() {
-    this.setState({
-      counter: this.state.counter - 1
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <button className="counterButton" onClick={this.decrementCounter}>-</button>
-        <span className="counterNumber">{this.state.counter}</span>
-        <button className="counterButton" onClick={this.incrementCounter}>+</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button className="counterButton" onClick={decrementCounter}>
+        -
+      </button>
+      <span className="counterNumber">{counter}</span>
+      <button className="counterButton" onClick={incrementCounter}>
+        +
+      </button>
+    </div>
+  );
 }
